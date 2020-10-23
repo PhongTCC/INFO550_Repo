@@ -1,0 +1,52 @@
+---
+title: "Trachoma Report"
+author: "Phong Le"
+date: "10/22/2020"
+output: html_document
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(kableExtra)
+
+EU_summary <- read.csv("../data/EU_summary.csv")
+
+```
+
+## Introduction
+
+EU stands for evaluation unit. Each evaluation unit measures the incidence of Trachoma, and data has been collected from the years 2007 - 2020. There are two stages of Trachoma of interest (TF & TT). TF is the preliminary stage of Trachoma disease progression, and TI is an advanced stage. Among children, the mean TF prevalence is `r  round(mean(EU_summary$TF),2)`%, and the mean TI prevalence is `r  round(mean(EU_summary$TI),2)`%. TT is the final stage of Trachoma which involves serious scarring of the eye. This stage is mostly found in adults. Among adults, the mean prevalence of TT is `r  round(mean(EU_summary$TT),2)`%. 
+
+___
+
+## Summary of Graphs/ Tables
+
+Below you will find summarizing figures for the prevalence of Trachoma stages TF, TI, and TT over the course of 2007 - 2020. 
+
+___
+
+#### Summary TF, TI, and TT Prevalence Plot Over 2007-2020
+
+![Figure 1: Summary TF, TI, and TT](../figures/fig1.png)
+
+___
+
+#### Summary TF, TI, and TT Prevalence Table Over 2007-2020
+
+```{r, table1, echo = FALSE}
+
+#Makes table arranging TF, TI, and TT by year
+EU_summary %>%
+  kable() %>%
+  kable_styling()
+
+```
+
+___
+
+```{r}
+getwd()
+devtools::session_info()
+```
+
+___
