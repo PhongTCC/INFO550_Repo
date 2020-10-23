@@ -6,8 +6,6 @@ output: html_document
 ---
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library(tidyverse)
-library(kableExtra)
 
 EU_summary <- read.csv("../data/EU_summary.csv")
 
@@ -36,9 +34,7 @@ ___
 ```{r, table1, echo = FALSE}
 
 #Makes table arranging TF, TI, and TT by year
-EU_summary %>%
-  kable() %>%
-  kable_styling()
+EU_summary
 
 ```
 
